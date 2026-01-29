@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+  /* Brand Colors - Warm Restaurant Palette */
+  --brand-burgundy: #8B1538;
+  --brand-red: #C41E3A;
+  --brand-warm-brown: #8B4513;
+  --brand-cream: #F5F5DC;
+  --brand-warm-white: #FFFEF7;
+  --brand-dark-brown: #654321;
+  --brand-gold: #DAA520;
+  
+  /* Base colors for light mode */
+  --background: #FFFEF7;
+  --foreground: #262626;
+}
+
+@theme inline {
+  /* Brand Colors */
+  --color-brand-burgundy: #8B1538;
+  --color-brand-red: #C41E3A;
+  --color-brand-warm-brown: #8B4513;
+  --color-brand-cream: #F5F5DC;
+  --color-brand-warm-white: #FFFEF7;
+  --color-brand-dark-brown: #654321;
+  --color-brand-gold: #DAA520;
+  
+  /* Base theme colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  
+  /* Spacing and sizing */
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Button Components */
+.btn-primary {
+  background-color: var(--color-brand-red);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-burgundy);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-brand-warm-brown);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-brand-dark-brown);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-brand-red);
+  color: var(--color-brand-red);
+  background-color: transparent;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-brand-red);
+  color: white;
+}
