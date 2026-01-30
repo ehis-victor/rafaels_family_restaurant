@@ -1,12 +1,28 @@
-import Layout from '../components/Layout'
-import Link from 'next/link'
+"use client";
+
+import Layout from '../components/Layout';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  staggerItem,
+  scaleIn,
+  viewportOptions,
+} from "../lib/animations";
 
 export default function About() {
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand-cream to-brand-warm-white py-20 lg:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
           <h1 className="text-4xl lg:text-6xl font-serif font-bold text-brand-burgundy mb-6">
             Our Family Story
           </h1>
@@ -14,15 +30,21 @@ export default function About() {
             Welcome to Rafael's Family Restaurant, where every meal is prepared with love 
             and served with genuine hospitality in the heart of Woodland, California.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Main Story Section */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
             {/* Story Content */}
-            <div>
+            <motion.div variants={staggerItem}>
               <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-burgundy mb-6">
                 A Family Tradition of Great Food
               </h2>
@@ -42,19 +64,23 @@ export default function About() {
                   4.6-star rating from over 333 happy customers who have made us part of their daily routine.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Image Placeholder */}
-            <div className="relative">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-brand-burgundy to-brand-red shadow-xl flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-6xl mb-4">👨‍👩‍👧‍👦</div>
-                  <p className="text-xl font-semibold">Family Owned & Operated</p>
-                  <p className="text-lg opacity-90">Serving Woodland Since Day One</p>
-                </div>
+            {/* Family Image */}
+            <motion.div className="relative" variants={staggerItem}>
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/family-restaurant.jpg"
+                  alt="Rafael's Family Restaurant - Family owned and operated, serving Woodland since day one"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -70,8 +96,18 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
+            <motion.div
+              className="text-center bg-white rounded-xl p-6 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl text-brand-red mb-4">🏡</div>
               <h3 className="text-xl font-serif font-bold text-brand-burgundy mb-3">
                 Family Atmosphere
@@ -80,9 +116,13 @@ export default function About() {
                 We create a warm, welcoming environment where everyone feels like family. 
                 From solo diners to large groups, all are welcome.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-6 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl text-brand-red mb-4">🥘</div>
               <h3 className="text-xl font-serif font-bold text-brand-burgundy mb-3">
                 Comfort Food
@@ -91,9 +131,13 @@ export default function About() {
                 Our menu features beloved American classics prepared from scratch with 
                 fresh ingredients and time-honored recipes.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-6 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl text-brand-red mb-4">👥</div>
               <h3 className="text-xl font-serif font-bold text-brand-burgundy mb-3">
                 Friendly Service
@@ -102,9 +146,13 @@ export default function About() {
                 Our experienced team is dedicated to providing fast, friendly service 
                 that makes every visit memorable and enjoyable.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-6 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl text-brand-red mb-4">🌟</div>
               <h3 className="text-xl font-serif font-bold text-brand-burgundy mb-3">
                 Community First
@@ -113,8 +161,8 @@ export default function About() {
                 As a local business, we're committed to supporting our Woodland community 
                 and being a positive presence in our neighborhood.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -130,9 +178,15 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
             {/* Location Info */}
-            <div className="bg-brand-cream rounded-xl p-8">
+            <motion.div className="bg-brand-cream rounded-xl p-8" variants={staggerItem}>
               <h3 className="text-2xl font-serif font-bold text-brand-burgundy mb-6">
                 📍 Find Us Here
               </h3>
@@ -150,10 +204,10 @@ export default function About() {
                   <div>M6H8+9M Woodland, California, USA</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact & Hours */}
-            <div className="bg-brand-cream rounded-xl p-8">
+            <motion.div className="bg-brand-cream rounded-xl p-8" variants={staggerItem}>
               <h3 className="text-2xl font-serif font-bold text-brand-burgundy mb-6">
                 📞 Contact & Hours
               </h3>
@@ -179,28 +233,40 @@ export default function About() {
                   <div>$10–$20 per person</div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Customer Rating */}
       <section className="py-16 bg-brand-burgundy text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
+          <motion.div
+            className="mb-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={scaleIn}
+          >
             <div className="text-6xl text-brand-gold mb-4">⭐⭐⭐⭐⭐</div>
             <div className="text-4xl font-serif font-bold mb-2">4.6 out of 5 stars</div>
             <div className="text-xl opacity-90">Based on 333 customer reviews</div>
-          </div>
+          </motion.div>
           
-          <div className="bg-brand-red bg-opacity-20 rounded-2xl p-8 max-w-2xl mx-auto">
+          <motion.div
+            className="bg-brand-red bg-opacity-20 rounded-2xl p-8 max-w-2xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeInUp}
+          >
             <blockquote className="text-xl italic mb-4">
               "Rafael's is our go-to family restaurant! The food is always fresh, the service is 
               excellent, and the prices are very reasonable. The chicken fried steak is the best 
               in town, and our kids love the mouse-eared pancakes!"
             </blockquote>
             <cite className="font-semibold">— A Happy Woodland Family</cite>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -225,5 +291,5 @@ export default function About() {
         </div>
       </section>
     </Layout>
-  )
+  );
 }

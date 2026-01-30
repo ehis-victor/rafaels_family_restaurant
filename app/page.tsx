@@ -1,33 +1,57 @@
-import Layout from './components/Layout'
-import Link from 'next/link'
+"use client";
+
+import Layout from "./components/Layout";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  fadeIn,
+  staggerContainer,
+  staggerItem,
+  scaleIn,
+  viewportOptions,
+} from "./lib/animations";
 
 export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-warm-white to-brand-cream py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url(/images/family-restaurant.jpg)",
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl lg:text-6xl font-serif font-bold text-brand-burgundy mb-6">
+            <motion.div
+              className="text-center lg:text-left text-white"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+            >
+              <h1 className="text-4xl lg:text-6xl font-serif font-bold mb-6">
                 Welcome to Rafael's
-                <span className="block text-brand-warm-brown text-2xl lg:text-3xl mt-2">
+                <span className="block text-brand-gold text-2xl lg:text-3xl mt-2">
                   Family Restaurant
                 </span>
               </h1>
-              <p className="text-xl text-gray-700 mb-8 max-w-2xl">
-                Experience the warmth of family dining with delicious American comfort food, 
-                served fresh daily in our cozy Woodland location.
+              <p className="text-xl mb-8 max-w-2xl opacity-95">
+                Experience the warmth of family dining with delicious American
+                comfort food, served fresh daily in our cozy Woodland location.
               </p>
-              
+
               {/* Rating Badge */}
               <div className="flex items-center justify-center lg:justify-start space-x-4 mb-8">
                 <div className="flex items-center space-x-1">
                   <span className="text-brand-gold text-2xl">★★★★★</span>
-                  <span className="text-lg font-semibold text-brand-burgundy">4.6</span>
+                  <span className="text-lg font-semibold">4.6</span>
                 </div>
-                <span className="text-gray-600">(333 reviews)</span>
+                <span className="text-gray-200">(333 reviews)</span>
               </div>
 
               {/* CTA Buttons */}
@@ -39,18 +63,21 @@ export default function Home() {
                   Call to Order: (530) 661-7502
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Hero Image Placeholder */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-cream to-brand-warm-brown shadow-2xl flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-6xl mb-4">🍽️</div>
-                  <p className="text-xl font-semibold">Delicious Food</p>
-                  <p className="text-lg">Served Fresh Daily</p>
-                </div>
-              </div>
-            </div>
+            {/* Hero Image */}
+            <motion.div
+              className="relative hidden lg:block"
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+            >
+              <img
+                src="/images/hero-food-image.jpg"
+                alt="Delicious food served fresh daily at Rafael's Family Restaurant"
+                className="aspect-square rounded-2xl object-cover shadow-2xl w-full"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -62,10 +89,11 @@ export default function Home() {
             A Family Tradition Since Day One
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Located in the heart of Woodland, Rafael's Family Restaurant has been serving 
-            the community with authentic American comfort food and genuine hospitality. 
-            From our hearty breakfast favorites to satisfying lunch options, every dish 
-            is prepared with love and the finest ingredients.
+            Located in the heart of Woodland, Rafael's Family Restaurant has
+            been serving the community with authentic American comfort food and
+            genuine hospitality. From our hearty breakfast favorites to
+            satisfying lunch options, every dish is prepared with love and the
+            finest ingredients.
           </p>
         </div>
       </section>
@@ -76,44 +104,65 @@ export default function Home() {
           <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-burgundy text-center mb-12">
             Why Choose Rafael's?
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
             {/* Great Food */}
-            <div className="text-center bg-white rounded-xl p-8 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-8 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-5xl text-brand-red mb-4">🍳</div>
               <h3 className="text-2xl font-serif font-bold text-brand-burgundy mb-4">
                 Great Food
               </h3>
               <p className="text-gray-700">
-                Fresh ingredients, time-honored recipes, and generous portions make every meal memorable. 
-                From our famous Chicken Fried Steak to fluffy pancakes, taste the difference quality makes.
+                Fresh ingredients, time-honored recipes, and generous portions
+                make every meal memorable. From our famous Chicken Fried Steak
+                to fluffy pancakes, taste the difference quality makes.
               </p>
-            </div>
+            </motion.div>
 
             {/* Fast Service */}
-            <div className="text-center bg-white rounded-xl p-8 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-8 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-5xl text-brand-red mb-4">⚡</div>
               <h3 className="text-2xl font-serif font-bold text-brand-burgundy mb-4">
                 Fast Service
               </h3>
               <p className="text-gray-700">
-                We respect your time. Our experienced team ensures quick, efficient service 
-                without compromising on quality. Perfect for busy mornings and lunch breaks.
+                We respect your time. Our experienced team ensures quick,
+                efficient service without compromising on quality. Perfect for
+                busy mornings and lunch breaks.
               </p>
-            </div>
+            </motion.div>
 
             {/* Fair Pricing */}
-            <div className="text-center bg-white rounded-xl p-8 shadow-lg">
+            <motion.div
+              className="text-center bg-white rounded-xl p-8 shadow-lg"
+              variants={staggerItem}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="text-5xl text-brand-red mb-4">💰</div>
               <h3 className="text-2xl font-serif font-bold text-brand-burgundy mb-4">
                 Fair Pricing
               </h3>
               <p className="text-gray-700">
-                Enjoy exceptional value with meals ranging from $10–$20 per person. 
-                Great food shouldn't break the bank, and at Rafael's, it doesn't have to.
+                Enjoy exceptional value with meals ranging from $10–$20 per
+                person. Great food shouldn't break the bank, and at Rafael's, it
+                doesn't have to.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -129,28 +178,62 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="bg-brand-cream rounded-lg p-6 text-center">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
+            <motion.div
+              className="bg-brand-cream rounded-lg p-6 text-center"
+              variants={staggerItem}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl mb-3">🥩</div>
-              <h4 className="font-semibold text-brand-burgundy mb-2">Chicken Fried Steak</h4>
+              <h4 className="font-semibold text-brand-burgundy mb-2">
+                Chicken Fried Steak
+              </h4>
               <p className="text-sm text-gray-600">with Eggs & Hash Browns</p>
-            </div>
-            <div className="bg-brand-cream rounded-lg p-6 text-center">
+            </motion.div>
+            <motion.div
+              className="bg-brand-cream rounded-lg p-6 text-center"
+              variants={staggerItem}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl mb-3">🥞</div>
-              <h4 className="font-semibold text-brand-burgundy mb-2">Fluffy Pancakes</h4>
-              <p className="text-sm text-gray-600">Kids love our Mouse-Eared special!</p>
-            </div>
-            <div className="bg-brand-cream rounded-lg p-6 text-center">
+              <h4 className="font-semibold text-brand-burgundy mb-2">
+                Fluffy Pancakes
+              </h4>
+              <p className="text-sm text-gray-600">
+                Kids love our Mouse-Eared special!
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-brand-cream rounded-lg p-6 text-center"
+              variants={staggerItem}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl mb-3">🌮</div>
-              <h4 className="font-semibold text-brand-burgundy mb-2">Breakfast Enchiladas</h4>
-              <p className="text-sm text-gray-600">Verde style with fresh avocado</p>
-            </div>
-            <div className="bg-brand-cream rounded-lg p-6 text-center">
+              <h4 className="font-semibold text-brand-burgundy mb-2">
+                Breakfast Enchiladas
+              </h4>
+              <p className="text-sm text-gray-600">
+                Verde style with fresh avocado
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-brand-cream rounded-lg p-6 text-center"
+              variants={staggerItem}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            >
               <div className="text-4xl mb-3">🥗</div>
-              <h4 className="font-semibold text-brand-burgundy mb-2">Veggie Croissant</h4>
+              <h4 className="font-semibold text-brand-burgundy mb-2">
+                Veggie Croissant
+              </h4>
               <p className="text-sm text-gray-600">Fresh and satisfying</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="text-center">
             <Link href="/menu" className="btn-primary">
@@ -167,19 +250,22 @@ export default function Home() {
             Ready for a Delicious Meal?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join us at Rafael's Family Restaurant for breakfast, lunch, or dinner. 
-            We're open daily at 7:00 AM in Purity Plaza.
+            Join us at Rafael's Family Restaurant for breakfast, lunch, or
+            dinner. We're open daily at 7:00 AM in Purity Plaza.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-secondary">
               Get Directions
             </Link>
-            <a href="tel:+15306617502" className="btn-outline border-white text-white hover:bg-white hover:text-brand-burgundy">
+            <a
+              href="tel:+15306617502"
+              className="btn-outline border-white text-white hover:bg-white hover:text-brand-burgundy"
+            >
               Call (530) 661-7502
             </a>
           </div>
         </div>
       </section>
     </Layout>
-  )
+  );
 }

@@ -1,18 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
 
 :root {
   /* Brand Colors - Warm Restaurant Palette */
-  --brand-burgundy: #8B1538;
-  --brand-red: #C41E3A;
-  --brand-warm-brown: #8B4513;
-  --brand-cream: #F5F5DC;
-  --brand-warm-white: #FFFEF7;
+  --brand-burgundy: #8b1538;
+  --brand-red: #c41e3a;
+  --brand-warm-brown: #8b4513;
+  --brand-cream: #f5f5dc;
+  --brand-warm-white: #fffef7;
   --brand-dark-brown: #654321;
-  --brand-gold: #DAA520;
-  
+  --brand-gold: #daa520;
+
   /* Base colors for light mode */
-  --background: #FFFEF7;
+  --background: #fffef7;
   --foreground: #262626;
 }
 
@@ -96,4 +97,35 @@ body {
 .btn-outline:hover {
   background-color: var(--color-brand-red);
   color: white;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU Acceleration for transforms */
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
