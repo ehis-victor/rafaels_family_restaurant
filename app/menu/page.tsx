@@ -90,14 +90,13 @@ export default function Menu() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               <div className="flex items-start space-x-4">
-                <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/images/chicken-fried-steak.jpg"
                     alt="Chicken Fried Steak with Eggs and Hash Browns"
-                    width={80}
-                    height={80}
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
-                    unoptimized
                   />
                 </div>
                 <div className="flex-1">
@@ -125,14 +124,13 @@ export default function Menu() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               <div className="flex items-start space-x-4">
-                <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/images/breakfast-enchiladas.jpg"
                     alt="Breakfast Enchiladas Verde with fresh avocado"
-                    width={80}
-                    height={80}
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
-                    unoptimized
                   />
                 </div>
                 <div className="flex-1">
@@ -160,14 +158,13 @@ export default function Menu() {
             >
               <div className="flex items-start space-x-4">
                 <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image24 h-24 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/images/pancakes-waffles.jpg"
                     alt="Fluffy buttermilk pancakes and Belgian waffles"
-                    width={80}
-                    height={80}
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
-                    unoptimized
-                  />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-brand-burgundy mb-2">
@@ -196,14 +193,13 @@ export default function Menu() {
               <div className="flex items-start space-x-4">
                 <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
+                    src="/images/v24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
                     src="/images/veggie-croissant.jpg"
                     alt="Fresh veggie croissant with cream cheese and herbs"
-                    width={128}
-                    height={128}
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
-                    unoptimized
-                  />
-                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-brand-burgundy mb-2">
                     Veggie Croissant
@@ -331,14 +327,13 @@ export default function Menu() {
               <div className="flex items-start space-x-4">
                 <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
+                    src="/images/v24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
                     src="/images/vegetable-beef-soup.jpg"
                     alt="Hearty vegetable beef soup with garlic bread"
-                    width={80}
-                    height={80}
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
-                    unoptimized
-                  />
-                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-brand-burgundy mb-2">
                     Vegetable Beef Soup with Garlic Bread
@@ -361,14 +356,13 @@ export default function Menu() {
                 <div className="w-50 h-50 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src="/images/menudo-pozole.jpg"
+                    alt="Tradition24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
+                    src="/images/menudo-pozole.jpg"
                     alt="Traditional menudo and pozole with avocado and egg"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-cover"
-                    unoptimized
-                  />
-                </div>
-                <div className="flex-1">
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover""flex-1">
                   <h3 className="text-xl font-bold text-brand-burgundy mb-2">
                     Menudo & Pozole with Avocado and Egg
                  </h3>
